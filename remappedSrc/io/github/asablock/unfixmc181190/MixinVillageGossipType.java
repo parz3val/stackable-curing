@@ -1,11 +1,11 @@
 package io.github.asablock.unfixmc181190;
 
-import net.minecraft.village.VillagerGossipType;
+import net.minecraft.village.ReputationEventType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(VillagerGossipType.class)
+@Mixin(ReputationEventType.class)
 public class MixinVillageGossipType {
     @ModifyConstant(method = "<clinit>", constant = @Constant(intValue = 25, ordinal = 0))
     private static int modifyConstant1(int constant) {
