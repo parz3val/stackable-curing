@@ -1,3 +1,7 @@
+# Automatically build the project and run any configured tests for every push
+# and submitted pull request. This can help catch issues that only occur on
+# certain platforms or Java versions, and provides a first line of defence
+# against bad commits.
 name: build
 on: [pull_request, push]
 
@@ -11,7 +15,6 @@ jobs:
         # Use these Java versions
         java: [
           17,    # Current Java LTS & minimum supported by Minecraft
-          21,    # Latest LTS (optional - add if you want to test on newer Java)
         ]
         # and run on both Linux and Windows
         os: [ubuntu-latest, windows-latest]
@@ -31,7 +34,9 @@ jobs:
           
       - name: setup gradle
         uses: gradle/actions/setup-gradle@v3
-        
+        with:
+          gradle-version: wrapper
+          
       - name: make gradle wrapper executable
         if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
