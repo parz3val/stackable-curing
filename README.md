@@ -1,6 +1,7 @@
-# Unfix MC-181190
+# Stackable Curing
 
 This mod brings back the feature of cured villager's discount stacking which is "fixed" in 23w31a.
+
 
 ## License
 
